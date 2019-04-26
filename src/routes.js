@@ -232,6 +232,22 @@ const base = [
         })
       },
       {
+        name: "Conditionals",
+        component: __page({
+          title: "Conditionals",
+          parent: "In-Depth React",
+          otherMarkdown: ["/content/conditionals.md"]
+        })
+      },
+      {
+        name: "Iteration",
+        component: __page({
+          title: "Iteration",
+          parent: "In-Depth React",
+          otherMarkdown: ["/content/iteration.md"]
+        })
+      },
+      {
         name: "Hooks",
         component: __page({
           title: "Hooks",

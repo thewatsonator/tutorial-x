@@ -59,7 +59,7 @@ const Page = ({
             <RemoteMarkdown url={markdownUrl} />
           </Suspense>
         ))}
-        {title !== "Home" && (
+        {title !== "Home" && title !== "How to use" && (
           <>
             <hr />
             <Suspense fallback="Loading...">
