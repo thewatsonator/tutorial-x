@@ -5,17 +5,24 @@ import Home from "./Pages/000-Home";
 import Variables from "./Pages/001-Variables";
 import ArrowFunctions from "./Pages/002-Arrow-Functions";
 import { __page } from "./Pages/Page";
+import { Icon } from "antd";
+
+const MyIcon = Icon.createFromIconfontCN({
+  scriptUrl: "//at.alicdn.com/t/font_1163797_3ei5ikue2ts.js"
+});
+
 export const firstSection = "Modern Javascript";
 
 const base = [
   {
     name: "Introducton",
     icon: "info",
-    subMenu: [{ name: "How to use", component: Home, key: "" }]
+    subMenu: [{ name: "How to use", component: Home, key: "how-to-use" }]
   },
   {
     name: firstSection,
-    icon: "user",
+    Icon: MyIcon,
+    icon: "icon-JavaScript",
     subMenu: [
       { name: "Variables", component: Variables },
       { name: "Arrow Functions", component: ArrowFunctions },
@@ -67,12 +74,41 @@ const base = [
           title: "ES Modules",
           reactHandbook: "es-modules/index.md"
         })
+      },
+      {
+        name: "Compiling modern Javascript",
+        component: __page({
+          title: "Compiling modern Javascript to ES5",
+          otherMarkdown: ["/content/compiling-modern-javascript.md"]
+        })
+      },
+      {
+        name: "Polyfills",
+        component: __page({
+          title: "Polyfills with Polyfill.io",
+          otherMarkdown: ["/content/polyfills.md"]
+        })
+      },
+      {
+        name: "Fetch API",
+        component: __page({
+          title: "Fetch API",
+          otherMarkdown: ["/content/fetch-api.md"]
+        })
+      },
+      {
+        name: "Coding Conventions",
+        component: __page({
+          title: "Coding Conventions",
+          otherMarkdown: ["/content/coding-conventions.md"]
+        })
       }
     ]
   },
   {
     name: "React Concepts",
-    icon: "user",
+    Icon: MyIcon,
+    icon: "icon-react",
     subMenu: [
       {
         name: "Single Page Application",
@@ -103,7 +139,8 @@ const base = [
         component: __page({
           title: "Purity",
           parent: "React Concepts",
-          reactHandbook: "react-purity/index.md"
+          reactHandbook: "react-purity/index.md",
+          otherMarkdown: ["/content/purity.md"]
         })
       },
       {
@@ -134,7 +171,8 @@ const base = [
   },
   {
     name: "In-Depth React",
-    icon: "user",
+    Icon: MyIcon,
+    icon: "icon-react",
     subMenu: [
       {
         name: "JSX",
@@ -149,7 +187,8 @@ const base = [
         component: __page({
           title: "Components",
           parent: "In-Depth React",
-          reactHandbook: "react-components/index.md"
+          reactHandbook: "react-components/index.md",
+          otherMarkdown: ["/content/components.md"]
         })
       },
       {
@@ -197,7 +236,13 @@ const base = [
         component: __page({
           title: "Hooks",
           parent: "In-Depth React",
-          reactHandbook: "react-hooks/index.md"
+          reactHandbook: "react-hooks/index.md",
+          otherMarkdown: ["/content/use-hooks.md"],
+          warning: {
+            message: "useReducer",
+            description:
+              "It's better to choose `useReducer` for more complete state management than `useState`.   `useReducer` follows the Redux pattern.  Further reading is mentioned below."
+          }
         })
       },
       {
@@ -229,7 +274,7 @@ const base = [
         name: "Render Props",
         component: __page({
           title: "Render Props",
-          parent: "Bonus",
+          parent: "In-Depth React",
           reactHandbook: "react-render-props/index.md"
         })
       },
@@ -237,14 +282,30 @@ const base = [
         name: "Higher Order Components",
         component: __page({
           title: "Higher Order Components",
-          parent: "Bonus",
+          parent: "In-Depth React",
           reactHandbook: "react-higher-order-components/index.md"
+        })
+      },
+      {
+        name: "CSS in React",
+        component: __page({
+          title: "CSS in React",
+          parent: "In-Depth React",
+          reactHandbook: "react-css/index.md"
+        })
+      },
+      {
+        name: "SASS in React",
+        component: __page({
+          title: "SASS in React",
+          parent: "In-Depth React",
+          reactHandbook: "react-sass/index.md"
         })
       }
     ]
   },
   {
-    name: "Bonus",
+    name: "Bonus React",
     icon: "dollar",
     subMenu: [
       {
@@ -287,12 +348,44 @@ const base = [
           parent: "Bonus",
           reactHandbook: "react-code-splitting/index.md"
         })
+      },
+      {
+        name: "Styled Components",
+        component: __page({
+          title: "Styled Components",
+          parent: "Bonus",
+          reactHandbook: "styled-components/index.md"
+        })
+      }
+    ]
+  },
+  {
+    name: "Testing",
+    icon: "check-circle",
+    iconProps: { theme: "twoTone", twoToneColor: "#52c41a" },
+    subMenu: [
+      {
+        name: "Jest",
+        component: __page({
+          title: "Jest",
+          parent: "Testing",
+          reactHandbook: "jest/index.md"
+        })
+      },
+      {
+        name: "Testing Components",
+        component: __page({
+          title: "Testing Components",
+          parent: "Testing",
+          reactHandbook: "react-testing-components/index.md"
+        })
       }
     ]
   }
 ];
 
 const withSlugs = base.map(menu => ({
+  iconProps: {},
   ...menu,
   key: slugify(menu.name),
   subMenu: menu.subMenu.map(subMenu => ({

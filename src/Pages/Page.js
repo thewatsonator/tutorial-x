@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
-import { Layout, Breadcrumb } from "antd";
+import { Layout, Breadcrumb, Alert } from "antd";
 import RemoteMarkdown, {
   ReactHandbookMarkdown
 } from "../Components/RemoteMarkdown";
@@ -15,6 +15,7 @@ const Page = ({
   content = "",
   rawContent = "",
   otherMarkdown = [],
+  warning = null,
   children
 }) => (
   <Layout style={{ padding: "0 24px 24px" }}>
@@ -40,6 +41,14 @@ const Page = ({
         }}
       >
         <h1>{title}</h1>
+        {!!warning && (
+          <Alert
+            message={warning.message}
+            description={<Markdown source={warning.description} />}
+            type="warning"
+            showIcon
+          />
+        )}
         {!!reactHandbook && (
           <Suspense fallback="Loading...">
             <ReactHandbookMarkdown reactHandbook={reactHandbook} />

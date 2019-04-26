@@ -42,7 +42,11 @@ function App() {
           <Sider width={250} style={{ background: "#fff" }}>
             <Menu
               mode="inline"
-              // defaultSelectedKeys={["1"]}
+              defaultSelectedKeys={[].concat(
+                window.location.pathname !== "/"
+                  ? window.location.pathname.substr(1)
+                  : "how-to-use"
+              )}
               defaultOpenKeys={openMenu}
               style={{ height: "100%", borderRight: 0 }}
             >
@@ -53,7 +57,7 @@ function App() {
                     key={menu.key}
                     title={
                       <span>
-                        <IconX type={menu.icon} />
+                        <IconX type={menu.icon} {...menu.iconProps} />
                         {menu.name}
                       </span>
                     }
