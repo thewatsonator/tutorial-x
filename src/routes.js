@@ -241,7 +241,7 @@ const base = [
           warning: {
             message: "useReducer",
             description:
-              "It's better to choose `useReducer` for more complete state management than `useState`.   `useReducer` follows the Redux pattern.  Further reading is mentioned below."
+              "It's better to choose the hook `useReducer` for more complete state management than `useState`.   `useReducer` follows the Redux pattern.  Further reading is mentioned below."
           }
         })
       },

@@ -29,6 +29,7 @@ export const ReactHandbookMarkdown = ({
       url={url}
       useDescription={useDescription}
       transformImageUri={imageUrl}
+      escapeHtml={false}
     />
   );
 };
