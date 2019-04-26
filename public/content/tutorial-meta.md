@@ -11,3 +11,5 @@ This application was generated using https://codesandbox.io.
 The component system used can be found at https://ant.design/docs/react/introduce
 
 The build system uses `Create React App`.
+
+The codebase can be reviewed here: https://codesandbox.io/s/q8464nyr26
