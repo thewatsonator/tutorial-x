@@ -33,7 +33,8 @@ const base = [
         name: "Rest and Spread",
         component: __page({
           title: "Rest and Spread",
-          reactHandbook: "javascript-rest-spread/index.md"
+          reactHandbook: "javascript-rest-spread/index.md",
+          exerciseMarkdown: ["/content/exercises/rest-and-spread.md"]
         })
       },
       {

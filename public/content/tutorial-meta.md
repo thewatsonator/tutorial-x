@@ -13,3 +13,7 @@ The component system used can be found at https://ant.design/docs/react/introduc
 The build system uses `Create React App`.
 
 The codebase can be reviewed here: https://codesandbox.io/s/q8464nyr26
+
+### Exercises
+
+Exercises are available in each exercise section and by clicking the button to CodeSandbox.io. Use the tests tab and index.test.js file to see how you can make the test pass.
