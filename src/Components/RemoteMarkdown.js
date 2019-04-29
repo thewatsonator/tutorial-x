@@ -3,8 +3,20 @@ import ReactDOM from "react-dom";
 import useFetch from "fetch-suspense";
 import matter from "gray-matter";
 import Markdown from "./Markdown";
-import { Alert, Card, Icon, Avatar } from "antd";
+import { Alert, Card, Icon, Avatar, Collapse } from "antd";
 const { Meta } = Card;
+const { Panel } = Collapse;
+
+const Answer = ({ answer }) =>
+  !!answer && (
+    <Collapse>
+      <Panel header="Show Answer" key={`answer-${answer}`}>
+        <Suspense fallback="Loading...">
+          <RemoteMarkdown url={answer} />
+        </Suspense>
+      </Panel>
+    </Collapse>
+  );
 
 export const ExerciseMarkdown = ({ parsed, ...rest }) => (
   <>
@@ -26,6 +38,7 @@ export const ExerciseMarkdown = ({ parsed, ...rest }) => (
           />
         </a>
       </p>
+      <Answer answer={parsed.data.answer} />
     </Card>
   </>
 );
@@ -39,7 +52,7 @@ const DefaultMarkdown = ({ parsed, useDescription, ...rest }) => (
   </>
 );
 
-const RemoteMarkdown = ({
+export const RemoteMarkdown = ({
   url,
   Render = DefaultMarkdown,
   useDescription = true,
