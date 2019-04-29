@@ -34,6 +34,7 @@ const base = [
         component: __page({
           title: "Rest and Spread",
           reactHandbook: "javascript-rest-spread/index.md",
+          otherMarkdown: ["/content/rest-spread-extra.md"],
           exerciseMarkdown: ["/content/exercises/rest-and-spread.md"]
         })
       },
@@ -244,6 +245,24 @@ const base = [
         })
       },
       {
+        name: "React Fragment",
+        component: __page({
+          title: "React Fragment",
+          parent: "In-Depth React",
+          reactHandbook: "react-fragment/index.md",
+          exerciseMarkdown: ["/content/exercises/fragment.md"]
+        })
+      },
+      {
+        name: "Atomic Components",
+        component: __page({
+          title: "Atomic Components",
+          parent: "In-Depth React",
+          otherMarkdown: ["/content/atomic-components.md"],
+          exerciseMarkdown: ["/content/exercises/atomic-component.md"]
+        })
+      },
+      {
         name: "Events",
         component: __page({
           title: "Events",
@@ -263,14 +282,6 @@ const base = [
             description:
               "It's better to choose the hook `useReducer` for more complete state management than `useState`.   `useReducer` follows the Redux pattern.  Further reading is mentioned below."
           }
-        })
-      },
-      {
-        name: "React Fragment",
-        component: __page({
-          title: "React Fragment",
-          parent: "In-Depth React",
-          reactHandbook: "react-fragment/index.md"
         })
       },
 
@@ -296,6 +307,14 @@ const base = [
           title: "Render Props",
           parent: "In-Depth React",
           reactHandbook: "react-render-props/index.md"
+        })
+      },
+      {
+        name: "Suspense",
+        component: __page({
+          title: "Suspense",
+          parent: "In-Depth React",
+          otherMarkdown: ["/content/suspense.md"]
         })
       },
       {

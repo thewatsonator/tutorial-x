@@ -1,3 +1,13 @@
+## Atomic Design
+
+The [Atomic Design Pattern](http://bradfrost.com/blog/post/atomic-web-design/) deconstructs elements into progressively smaller components. The smaller components are the more reusable they are.
+
+1. Atoms
+2. Molecules
+3. Organisms
+4. Templates
+5. Pages
+
 ## Best Practice
 
 - Keep components as small and dumb as often possible to promote reusability and testability.

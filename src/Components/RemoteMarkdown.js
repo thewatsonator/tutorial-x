@@ -19,6 +19,7 @@ const Answer = ({ answer }) =>
   );
 
 export const ExerciseMarkdown = ({ parsed, ...rest }) => (
+  // https://ant.design/components/card/
   <>
     <Card
       headStyle={{ backgroundColor: "#e6f7ff", borderColor: "#91d5ff" }}
@@ -46,6 +47,7 @@ export const ExerciseMarkdown = ({ parsed, ...rest }) => (
 const DefaultMarkdown = ({ parsed, useDescription, ...rest }) => (
   <>
     {useDescription && parsed.data && !!parsed.data.description && (
+      // https://ant.design/components/alert/
       <Alert message={parsed.data.description} type="success" />
     )}
     <Markdown source={parsed.content} {...rest} />
@@ -54,12 +56,16 @@ const DefaultMarkdown = ({ parsed, useDescription, ...rest }) => (
 
 export const RemoteMarkdown = ({
   url,
+  // https://q8464nyr26.codesandbox.io/render-props
   Render = DefaultMarkdown,
   useDescription = true,
   ...rest
 }) => {
+  // https://github.com/CharlesStover/fetch-suspense
   const data = useFetch(url);
+  // https://github.com/jonschlinkert/gray-matter
   const parsed = matter(data);
+  // https://q8464nyr26.codesandbox.io/render-props
   return <Render parsed={parsed} useDescription={useDescription} {...rest} />;
 };
 

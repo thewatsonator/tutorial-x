@@ -21,6 +21,10 @@ const Exercises = ({ exerciseMarkdown }) =>
     </>
   );
 
+/**
+ *
+ * // https://ant.design/components/layout/
+ */
 const Page = ({
   title,
   parent,
@@ -34,14 +38,15 @@ const Page = ({
 }) => (
   <Layout style={{ padding: "0 24px 24px" }}>
     {title !== "Home" && (
+      // https://ant.design/components/breadcrumb/
       <Breadcrumb style={{ margin: "16px 0" }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>{parent}</Breadcrumb.Item>
         <Breadcrumb.Item>{title}</Breadcrumb.Item>
       </Breadcrumb>
     )}
-
     <Content
+      // https://ant.design/components/layout/#Component-Overview
       style={{
         background: "#fff",
         padding: 24,
@@ -70,7 +75,7 @@ const Page = ({
         )}
         {otherMarkdown.map((markdownUrl, index) => (
           <Suspense key={`remote-markdown-${0}`} fallback="Loading...">
-            <RemoteMarkdown url={markdownUrl} />
+            <RemoteMarkdown url={markdownUrl} escapeHtml={false} />
           </Suspense>
         ))}
         <Exercises exerciseMarkdown={exerciseMarkdown} />
