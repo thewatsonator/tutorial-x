@@ -2,11 +2,24 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import { Layout, Breadcrumb, Alert } from "antd";
 import RemoteMarkdown, {
-  ReactHandbookMarkdown
+  ReactHandbookMarkdown,
+  ExerciseMarkdown
 } from "../Components/RemoteMarkdown";
 import Markdown from "../Components/Markdown";
 
 const { Content } = Layout;
+
+const Exercises = ({ exerciseMarkdown }) =>
+  exerciseMarkdown.length > 0 && (
+    <>
+      <h2>Exercises</h2>
+      {exerciseMarkdown.map((markdownUrl, index) => (
+        <Suspense key={`remote-markdown-${0}`} fallback="Loading...">
+          <RemoteMarkdown url={markdownUrl} Render={ExerciseMarkdown} />
+        </Suspense>
+      ))}
+    </>
+  );
 
 const Page = ({
   title,
@@ -15,6 +28,7 @@ const Page = ({
   content = "",
   rawContent = "",
   otherMarkdown = [],
+  exerciseMarkdown = [],
   warning = null,
   children
 }) => (
@@ -59,6 +73,7 @@ const Page = ({
             <RemoteMarkdown url={markdownUrl} />
           </Suspense>
         ))}
+        <Exercises exerciseMarkdown={exerciseMarkdown} />
         {title !== "Home" && title !== "How to use" && (
           <>
             <hr />

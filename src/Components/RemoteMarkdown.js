@@ -3,19 +3,51 @@ import ReactDOM from "react-dom";
 import useFetch from "fetch-suspense";
 import matter from "gray-matter";
 import Markdown from "./Markdown";
-import { Alert } from "antd";
+import { Alert, Card, Icon, Avatar } from "antd";
+const { Meta } = Card;
 
-const RemoteMarkdown = ({ url, useDescription = true, ...rest }) => {
+export const ExerciseMarkdown = ({ parsed, ...rest }) => (
+  <>
+    <Card
+      headStyle={{ backgroundColor: "#e6f7ff", borderColor: "#91d5ff" }}
+      title={<h4>Exercise: {parsed.data.title}</h4>}
+    >
+      <Markdown source={parsed.content} {...rest} />
+      <p>
+        <a
+          href={`https://codesandbox.io/s/${
+            parsed.data.codesandbox
+          }?fontsize=14`}
+          target="__blank"
+        >
+          <img
+            alt={`Edit ${parsed.data.codesandbox}`}
+            src="https://codesandbox.io/static/img/play-codesandbox.svg"
+          />
+        </a>
+      </p>
+    </Card>
+  </>
+);
+
+const DefaultMarkdown = ({ parsed, useDescription, ...rest }) => (
+  <>
+    {useDescription && parsed.data && !!parsed.data.description && (
+      <Alert message={parsed.data.description} type="success" />
+    )}
+    <Markdown source={parsed.content} {...rest} />
+  </>
+);
+
+const RemoteMarkdown = ({
+  url,
+  Render = DefaultMarkdown,
+  useDescription = true,
+  ...rest
+}) => {
   const data = useFetch(url);
   const parsed = matter(data);
-  return (
-    <>
-      {useDescription && parsed.data && !!parsed.data.description && (
-        <Alert message={parsed.data.description} type="success" />
-      )}
-      <Markdown source={parsed.content} {...rest} />
-    </>
-  );
+  return <Render parsed={parsed} useDescription={useDescription} {...rest} />;
 };
 
 export const ReactHandbookMarkdown = ({

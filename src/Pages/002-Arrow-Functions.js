@@ -8,5 +8,6 @@ export default ({ title = "Arrow Functions", parent = firstSection }) => (
     title={title}
     parent={parent}
     reactHandbook="javascript-arrow-functions/index.md"
+    exerciseMarkdown={["/content/exercises/arrow-functions.md"]}
   />
 );

@@ -25,7 +25,10 @@ const base = [
     icon: "icon-JavaScript",
     subMenu: [
       { name: "Variables", component: Variables },
-      { name: "Arrow Functions", component: ArrowFunctions },
+      {
+        name: "Arrow Functions",
+        component: ArrowFunctions
+      },
       {
         name: "Rest and Spread",
         component: __page({
@@ -220,7 +223,23 @@ const base = [
         component: __page({
           title: "State vs Props",
           parent: "In-Depth React",
-          reactHandbook: "state-vs-props/index.md"
+          reactHandbook: "react-state-vs-props/index.md"
+        })
+      },
+      {
+        name: "Iteration in JSX",
+        component: __page({
+          title: "Iteration in JSX",
+          parent: "In-Depth React",
+          otherMarkdown: ["/content/iteration.md"]
+        })
+      },
+      {
+        name: "Conditionals in JSX",
+        component: __page({
+          title: "Conditionals in JSX",
+          parent: "In-Depth React",
+          otherMarkdown: ["/content/conditionals.md"]
         })
       },
       {
@@ -229,22 +248,6 @@ const base = [
           title: "Events",
           parent: "In-Depth React",
           reactHandbook: "react-events/index.md"
-        })
-      },
-      {
-        name: "Conditionals",
-        component: __page({
-          title: "Conditionals",
-          parent: "In-Depth React",
-          otherMarkdown: ["/content/conditionals.md"]
-        })
-      },
-      {
-        name: "Iteration",
-        component: __page({
-          title: "Iteration",
-          parent: "In-Depth React",
-          otherMarkdown: ["/content/iteration.md"]
         })
       },
       {
