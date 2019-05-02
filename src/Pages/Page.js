@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
-import { Layout, Breadcrumb, Alert } from "antd";
+import { Layout, Breadcrumb, Alert, Icon } from "antd";
 import RemoteMarkdown, {
   ReactHandbookMarkdown,
   ExerciseMarkdown
@@ -8,6 +8,15 @@ import RemoteMarkdown, {
 import Markdown from "../Components/Markdown";
 
 const { Content } = Layout;
+
+const Loading = () => (
+  <Alert
+    message="Loading..."
+    icon={<Icon type="loading" />}
+    type="info"
+    showIcon
+  />
+);
 
 const Exercises = ({ exerciseMarkdown }) =>
   exerciseMarkdown.length > 0 && (
@@ -69,7 +78,7 @@ const Page = ({
           />
         )}
         {!!reactHandbook && (
-          <Suspense fallback="Loading...">
+          <Suspense fallback={<Loading />}>
             <ReactHandbookMarkdown reactHandbook={reactHandbook} />
           </Suspense>
         )}

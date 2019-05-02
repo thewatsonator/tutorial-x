@@ -17,6 +17,8 @@ This is a single page application which:
 - No React context
 - Only 1 class with lifecycle method has been written
 
+Ant.Design component system does use context, state, and lifecycle methods but we do not need to manage these. By using a component system as the building blocks for our SPA we can avoid the need to use the more complex aspects of React.
+
 ### Component System Ant.Design
 
 The component system used can be found at https://ant.design/docs/react/introduce
