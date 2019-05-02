@@ -7,6 +7,13 @@ import { Alert, Card, Icon, Avatar, Collapse } from "antd";
 const { Meta } = Card;
 const { Panel } = Collapse;
 
+/**
+ * A toggle component to display an exercise answer
+ * @param {string} answer May be a relative or full url to markdown file
+ * Collapse:  https://ant.design/components/collapse/
+ * Panel: https://ant.design/components/collapse/#Collapse.Panel
+ * Suspense: https://q8464nyr26.codesandbox.io/suspense
+ */
 const Answer = ({ answer }) =>
   !!answer && (
     <Collapse>
@@ -18,8 +25,12 @@ const Answer = ({ answer }) =>
     </Collapse>
   );
 
+/**
+ *
+ * @param parsed https://github.com/jonschlinkert/gray-matter/blob/master/gray-matter.d.ts#L39
+ * Card: https://ant.design/components/card/
+ */
 export const ExerciseMarkdown = ({ parsed, ...rest }) => (
-  // https://ant.design/components/card/
   <>
     <Card
       headStyle={{ backgroundColor: "#e6f7ff", borderColor: "#91d5ff" }}
@@ -44,6 +55,11 @@ export const ExerciseMarkdown = ({ parsed, ...rest }) => (
   </>
 );
 
+/**
+ * Default Markdown Renderer
+ * @param parsed https://github.com/jonschlinkert/gray-matter/blob/master/gray-matter.d.ts#L39
+ * Alert: https://ant.design/components/alert/
+ */
 const DefaultMarkdown = ({ parsed, useDescription, ...rest }) => (
   <>
     {useDescription && parsed.data && !!parsed.data.description && (
@@ -54,6 +70,10 @@ const DefaultMarkdown = ({ parsed, useDescription, ...rest }) => (
   </>
 );
 
+/**
+ *
+ * @param {string} url
+ */
 export const RemoteMarkdown = ({
   url,
   // https://q8464nyr26.codesandbox.io/render-props
@@ -69,6 +89,9 @@ export const RemoteMarkdown = ({
   return <Render parsed={parsed} useDescription={useDescription} {...rest} />;
 };
 
+/**
+ * Specfically for loading content from a specific branch
+ */
 export const ReactHandbookMarkdown = ({
   reactHandbook,
   useDescription = true

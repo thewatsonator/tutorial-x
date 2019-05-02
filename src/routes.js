@@ -13,6 +13,9 @@ const MyIcon = Icon.createFromIconfontCN({
 
 export const firstSection = "Modern Javascript";
 
+/**
+ * Base routes
+ */
 const base = [
   {
     name: "Introducton",
@@ -423,6 +426,9 @@ const base = [
   }
 ];
 
+/**
+ * Add a slug to each menu item using the page name
+ */
 const withSlugs = base.map(menu => ({
   iconProps: {},
   ...menu,
@@ -433,6 +439,9 @@ const withSlugs = base.map(menu => ({
   }))
 }));
 
+/**
+ * Flatten the menu for react-router.Route
+ */
 export const flatMenu = withSlugs.reduce(
   (ac, it) => {
     return ac.concat(it.subMenu);
@@ -440,6 +449,9 @@ export const flatMenu = withSlugs.reduce(
   [{ name: "How to use", component: Home, key: "" }]
 );
 
+/**
+ * Used to open the Ant.Design menu
+ */
 export const openMenu = withSlugs.map(it => it.key);
 
 export default withSlugs;

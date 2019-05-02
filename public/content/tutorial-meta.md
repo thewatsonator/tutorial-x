@@ -8,9 +8,24 @@ This tutorial includes a curated selection of content from the React Handbook pl
 
 This application was generated using https://codesandbox.io.
 
+### SPA key points
+
+This is a single page application which:
+
+- Uses a component system.
+- No external state manager
+- No React context
+- Only 1 class with lifecycle method has been written
+
+### Component System Ant.Design
+
 The component system used can be found at https://ant.design/docs/react/introduce
 
-The build system uses `Create React App`.
+### Build tool `Create React App`
+
+The build system uses `Create React App` and `React App Rewired` with a `config-overrides.js` file.
+
+### Code Base
 
 The codebase can be reviewed here: https://codesandbox.io/s/q8464nyr26
 

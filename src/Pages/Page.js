@@ -96,4 +96,8 @@ const Page = ({
 
 export default Page;
 
+/**
+ *
+ * Used as a factory to generate a Page component for react-router.Route
+ */
 export const __page = props => () => <Page {...props} />;
